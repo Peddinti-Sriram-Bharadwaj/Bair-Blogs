@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rss-aggregator
-        image: your-dockerhub/rss-aggregator:latest
+        image: sriram9217/rss-aggregator:latest
         ports:
         - containerPort: 80  # Correct format: list of objects (array of ports)
         env:
