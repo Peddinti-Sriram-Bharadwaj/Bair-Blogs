@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t your-dockerhub/rss-aggregator:latest .'
+                    sh 'docker build -t sriram9217/rss-aggregator:latest .'
 
                 }
             }
@@ -13,9 +13,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    sh 'kubectl apply -f kubernetes/deployment.yaml'
-                    sh 'kubectl apply -f kubernetes/service.yaml'
-                    sh 'kubectl apply -f kubernetes/ingress.yaml'
+                    sh 'kubectl apply -f ci_cd/kubernetes/deployment.yaml'
+                    sh 'kubectl apply -f ci_cd/kubernetes/service.yaml'
+                    sh 'kubectl apply -f ci_cd/kubernetes/ingress.yaml'
                 }
             }
         }
