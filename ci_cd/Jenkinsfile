@@ -2,6 +2,31 @@ pipeline {
     agent any
 
     stages {
+                stage('Install Minikube') {
+            steps {
+                script {
+                    // Install dependencies
+                    sh '''#!/bin/bash
+                    set -e
+                    curl -Lo minikube https://storage.googleapis.com/minikube/releases/${MINIKUBE_VERSION}/minikube-linux-amd64
+                    chmod +x minikube
+                    sudo mv minikube /usr/local/bin/
+                    '''
+                }
+            }
+        }
+
+        stage('Start Minikube') {
+            steps {
+                script {
+                    // Start Minikube (or check if it's already running)
+                    sh '''#!/bin/bash
+                    set -e
+                    minikube start --driver=none  # or specify your driver
+                    '''
+                }
+            }
+        }
         stage('Build') {
             steps {
                 script {
