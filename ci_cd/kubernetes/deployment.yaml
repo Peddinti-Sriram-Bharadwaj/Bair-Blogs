@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: rss-aggregator
-spec: 
-  replicas: 2
+metadata:
+  name: rss-aggregator-deployment
+spec:
+  replicas: 1
   selector:
-    matchlabels:
+    matchLabels:
       app: rss-aggregator
   template:
     metadata:
@@ -13,8 +13,10 @@ spec:
         app: rss-aggregator
     spec:
       containers:
-        - name: rss-aggregator
-          image: sriram9217/rss-aggregator:latest
-          ports:
-            -containerPort: 8000
-    
+      - name: rss-aggregator
+        image: your-dockerhub/rss-aggregator:latest
+        ports:
+        - containerPort: 80  # Correct format: list of objects (array of ports)
+        env:
+        - name: RSS_URL
+          value: "https://bair.berkeley.edu/blog/feed.xml"
