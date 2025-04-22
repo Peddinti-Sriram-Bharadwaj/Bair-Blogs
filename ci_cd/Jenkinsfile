@@ -19,14 +19,18 @@ pipeline {
         stage('Start Minikube') {
             steps {
                 script {
-                    // Start Minikube (or check if it's already running)
+                    // Delete existing cluster if it uses the wrong driver
+                    sh 'minikube delete || true'  // Ignore errors if no cluster exists
+                    
+                    // Start Minikube using the 'docker' driver
                     sh '''#!/bin/bash
                     set -e
-                    minikube start --driver=none  # or specify your driver
+                    minikube start --driver=docker
                     '''
                 }
             }
         }
+
         stage('Build') {
             steps {
                 script {
