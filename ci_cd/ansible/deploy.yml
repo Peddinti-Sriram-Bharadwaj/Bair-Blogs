@@ -1,0 +1,5 @@
+- name: Deploy RSS Aggregator
+  hosts: localhost
+  tasks:
+    - name: Apply Kubernetes manifests
+      command: kubectl apply -f /path/to/kubernetes/manifests/

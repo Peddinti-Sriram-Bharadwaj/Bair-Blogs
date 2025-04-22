@@ -1,0 +1,20 @@
+apiversion: apps/v1
+kind: Deployment
+metadata: 
+  name: rss-aggregator
+spec: 
+  replicas: 2
+  selector:
+    matchlabels:
+      app: rss-aggregator
+  template:
+    metadata:
+      labels:
+        app: rss-aggregator
+    spec:
+      containers:
+        - name: rss-aggregator
+          image: sriram9217/rss-aggregator:latest
+          ports:
+            -containerPort: 8000
+    

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Bair Blog Aggregator</title>
+        <link rel = "stylesheet" href = "style.css">
+    </head>
+
+    <body>
+        <h1>Bair Blog Aggregator</h1>
+        <ul id = "blog-list"></ul>
+        <script src = "script.js">
+            fetch('https://localhost:8080/')
+            .then(response => response.json())
+            .then(data => {document.getElementById('blog-list').innerHTML = data);
+        </script>
+    </body>
+</html>
