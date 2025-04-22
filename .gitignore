@@ -1,33 +1,10 @@
-# Python bytecode files
+__pycache__/
 *.pyc
 *.pyo
-__pycache__/
-
-# Virtual environment
-venv/
-
-# Docker related files
+*.env
+*.db
+*.sqlite3
 *.log
-*.pid
-*.bak
-*.swp
-Dockerfile
-docker-compose.yml
-
-# Environment variables
-.env
-
-# IDE/Editor directories
-.vscode/
-.idea/
-
-# MacOS specific files
-.DS_Store
-
-# Test and coverage files
-*.coverage
-*.tox
-*.nox
-*.coverage.*
-*.hypothesis/
-.coverage.*
+.env/
+venv/
+*.egg-info/
