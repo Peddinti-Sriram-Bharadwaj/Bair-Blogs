@@ -1,4 +1,4 @@
-FROM alpine
+FROM python
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Command to run the application
-CMD ["uvicorn", "app.backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["ls"]
