@@ -23,6 +23,7 @@ pipeline {
                 script {
                     sh 'minikube delete || true'
                     sh 'minikube start --driver=docker'
+                    sh 'eval $(minikube docker-env)'
                 }
             }
         }
